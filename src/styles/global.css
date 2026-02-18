@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+/* Martian Grotesk - Standard Width */
+
+/* Thin - 100 */
+@font-face {
+  font-family: 'Martian Grotesk';
+	src: url('/fonts/martian-grotesk/MartianGrotesk-StdTh.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Extra Light - 200 */
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('/fonts/martian-grotesk/MartianGrotesk-StdxLt.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light - 300 */
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('/fonts/martian-grotesk/MartianGrotesk-StdLt.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular - 400 */
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('/fonts/martian-grotesk/MartianGrotesk-StdRg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium - 500 */
+@font-face {
+  font-family: 'Martian Grotesk';
+	src: url('/fonts/martian-grotesk/MartianGrotesk-StdMd.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: 'Martian Grotesk';
+	src: url('/fonts/martian-grotesk/MartianGrotesk-StdBd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Extra Bold - 800 */
+@font-face {
+  font-family: 'Martian Grotesk';
+	src: url('/fonts/martian-grotesk/MartianGrotesk-StdxBd.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black - 900 */
+@font-face {
+  font-family: 'Martian Grotesk';
+	src: url('/fonts/martian-grotesk/MartianGrotesk-StdBl.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ultra - 950 */
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('/fonts/martian-grotesk/MartianGrotesk-StdUlt.woff2') format('woff2');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		background-image:
+			/* Thin vertical lines - 1mm spacing */
+			linear-gradient(to right, rgba(240, 240, 240, 0.7) 0.5px, transparent 0.5px),
+			/* Thin horizontal lines - 1mm spacing */
+			linear-gradient(to bottom, rgba(240, 240, 240, 0.7) 0.5px, transparent 0.5px),
+			/* Thick vertical lines every 10mm (with alpha increased) */
+			linear-gradient(to right, rgba(67, 130, 100, 0.4) 1px, transparent 1px),
+			/* Thick horizontal lines every 10mm (with alpha increased) */
+			linear-gradient(to bottom, rgba(67, 130, 100, 0.4) 1px, transparent 1px);
+
+		/* Each gradient needs its own background-size */
+		background-size:
+			3.78mm 3.78mm,    /* For thin vertical lines */
+			3.78mm 3.78mm,    /* For thin horizontal lines */
+			37.8mm 37.8mm,    /* For thick vertical lines (10mm) */
+			37.8mm 37.8mm;    /* For thick horizontal lines (10mm) */
+
+		/* Fix: Prevent splitting when scrolling */
+		background-attachment: local; /* This makes grid scroll with content */
+		background-position: 0 0;
+	}
+
+	h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  h4 {
+    @apply text-xl font-bold;
+  }
+  h5 {
+    @apply text-lg font-bold;
+  }
+  h6 {
+    @apply text-base font-bold;
+  }
+
+  html, body {
+    @apply flex flex-col h-dvh h-screen min-h-full;
+		font-family: 'Martian Grotesk', sans-serif;
+  }
+
+  body * {
+    /* @apply border-1 border-dashed divide-dashed; */
+  }
+
+	.card {
+		@apply border-1 border-solid rounded-sm py-10 px-4 py-5 my-4;
+	}
+
+	.prose p {
+		margin-bottom: 1.5rem;
+		line-height: 1.75;
+	}
+
+	.prose p:last-child {
+		margin-bottom: 0;
+	}
+
+  #main-content, footer {
+		@apply flex flex-col lg:flex-row lg:place-content-center w-full lg:max-w-9/10 lg:mx-auto
+						md:max-w-full;
+  }
+
+  #main-content {
+		@apply min-h-fit;
+  }
+
+  footer {
+    @apply min-h-1/3;
+  }
+
+	.cv-link {
+		text-decoration: underline;
+		color: black;
+		text-align: left;
+		margin: 10px 0px 10px 0px;
+	}
+
+	.cv-link:visited {
+		color: black;
+	}
+
+	.cv-link:hover {
+		color: black;
+	}
+}

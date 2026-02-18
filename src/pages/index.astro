@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('about', 'intro');
+if (!entry) {
+  throw new Error('Could not find intro');
+}
+
+const introLines = entry.body.split('\n');
+let lap = false;
+---
+
+<Layout>
+	<h1>{ entry.data.title }</h1>
+	<div class="min-h-screen lg:mx-10 lg:mt-10">
+		{ introLines.map(line =>{
+				if (line !== '') {
+					const margin = lap ? 'lg:ml-auto' : 'lg:mr-auto';
+					const style = `my-5 font-medium text-bold text-2xl lg:w-3/4 card prose ${margin}`;
+					lap = !lap;
+					return (
+						<div class={style}>
+							{line}
+						</div>
+					);
+				}
+			})
+		}
+	</div>
+</Layout>

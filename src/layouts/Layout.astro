@@ -1,0 +1,32 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HeaderMobile from '../components/HeaderMobile.astro';
+import Aside from '../components/Aside.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <ViewTransitions />
+  </head>
+  <body>
+    <main id="main-content">
+			<div class="w-screen h-[8.33vh] block lg:hidden">
+				<HeaderMobile />
+			</div>
+      <div class="flex-none w-32 hidden pt-16 lg:block">
+        <Header />
+      </div>
+      <div class="flex-1 flex flex-col w-full lg:pt-20 pt-14 lg:px-20 sm:px-4">
+        <slot />
+      </div>
+      <div class="w-32 hidden lg:pt-20 px-4 lg:block">
+        <Aside />
+      </div>
+    </main>
+		<Footer />
+  </body>
+</html>
