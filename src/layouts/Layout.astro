@@ -11,8 +11,8 @@ interface Props {
 	description?: string;
 }
 
-const { 
-	title = 'Jesus Posada - Fullstack Developer', 
+const {
+	title = 'Jesus Posada - Fullstack Developer',
 	description = 'Fullstack JavaScript developer focused on clean architecture, Rust, and building quality software. 10+ years of experience.'
 } = Astro.props;
 ---
@@ -23,24 +23,24 @@ const {
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="generator" content={Astro.generator}>
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title}>
     <meta property="og:description" content={description}>
     <meta property="og:type" content="website">
     <meta property="og:url" content={Astro.url}>
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content={title}>
     <meta name="twitter:description" content={description}>
-    
+
     <!-- Canonical -->
     <link rel="canonical" href="https://jspcrdn.github.io/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    
+
     <ViewTransitions />
   </head>
   <body>
@@ -51,7 +51,7 @@ const {
       <div class="flex-none w-32 hidden pt-16 lg:block">
         <Header />
       </div>
-      <div class="flex-1 flex flex-col w-full lg:pt-20 pt-14 lg:px-20 sm:px-4">
+      <div class="flex-1 flex flex-col min-h-screen mb-30 w-full lg:pt-20 pt-14 lg:px-20 sm:px-4">
         <slot />
       </div>
       <div class="w-32 hidden lg:pt-20 px-4 lg:block">

@@ -87,27 +87,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+	--text-tiny: 0.877rem;
+}
+
 @layer base {
 	html {
 		background-image:
-			/* Thin vertical lines - 1mm spacing */
 			linear-gradient(to right, rgba(240, 240, 240, 0.7) 0.5px, transparent 0.5px),
-			/* Thin horizontal lines - 1mm spacing */
 			linear-gradient(to bottom, rgba(240, 240, 240, 0.7) 0.5px, transparent 0.5px),
-			/* Thick vertical lines every 10mm (with alpha increased) */
 			linear-gradient(to right, rgba(67, 130, 100, 0.4) 1px, transparent 1px),
-			/* Thick horizontal lines every 10mm (with alpha increased) */
 			linear-gradient(to bottom, rgba(67, 130, 100, 0.4) 1px, transparent 1px);
 
-		/* Each gradient needs its own background-size */
 		background-size:
-			3.78mm 3.78mm,    /* For thin vertical lines */
-			3.78mm 3.78mm,    /* For thin horizontal lines */
-			37.8mm 37.8mm,    /* For thick vertical lines (10mm) */
-			37.8mm 37.8mm;    /* For thick horizontal lines (10mm) */
+			3.78mm 3.78mm,
+			3.78mm 3.78mm,
+			37.8mm 37.8mm,
+			37.8mm 37.8mm;
 
-		/* Fix: Prevent splitting when scrolling */
-		background-attachment: local; /* This makes grid scroll with content */
+		background-attachment: local;
 		background-position: 0 0;
 	}
 

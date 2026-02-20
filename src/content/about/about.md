@@ -13,4 +13,5 @@ So I left to find out. When I started working for American companies, I did it f
 That's why I've made a deliberate shift in perspective. I am deconstructing myself as a professional — not just revisiting tools and technologies, but architectures, mindsets, and structures rather than buzzword-heavy language. My 10+ years of real-world experience don't disappear in that process; they give me a well founded context to keep ahead.
 
 In practice, this means I am focused on a fullstack JavaScript perspective, with a growing focus on Rust — Linux, best practices, structure first, and a logical/mathematical approach to problem-solving. I am taking my time to do this right.
+
 If that's the kind of developer you want building your product, I'd love to talk.

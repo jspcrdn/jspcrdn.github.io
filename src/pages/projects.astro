@@ -8,15 +8,38 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
+
+const mdToHtml = (md: string) => {
+  const lines = md.split('\n');
+  const title = lines.shift();
+  const body = lines.join('\n');
+  return '<strong>' + title + '</strong><br>' +
+    body.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="cv-link">$1</a>')
+    .replace(/\n/g, '<br>');
+}
+
+const projects = entry.body.split(/(?:^|\n)#\s+/).filter(p => p.trim());
 ---
 
 <Layout>
 	<h1>{ entry.data.title }</h1>
 	<div class="lg:mx-10 lg:mt-10">
-		<div class="min-h-screen">
-			<div class="card prose">
-				<Content />
-			</div>
+		<div class="border-l-4 border-indigo-500 p-2 bg-stone-300/75 rounded-r-lg mb-10 text-tiny">
+			<span class="space-y-4">
+				<p>Hi,</p>
+				<p>This section is pretty lonely right now — so I'm open to projects in backend and fullstack development, including webpages for your business.</p>
+				<p>Fair pricing, serious work.</p>
+				<p>Your page will load as fast as this one, I promise — no WordPress, no Joomla, no Drupal. Just clean, fast code.</p>
+				<p class="cv-link"><a href="/about">Know my background <-</a></p>
+				<p class="cv-link"><a href="mailto:posada@jspc.dev">Contact me -></a></p>
+			</span>
+		</div>
+		<div>
+			{projects.map((project) => (
+				<div class="card prose">
+					<div set:html={mdToHtml(project)} />
+				</div>
+			))}
 		</div>
 	</div>
 </Layout>
