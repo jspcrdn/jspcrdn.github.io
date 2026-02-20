@@ -1,12 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('about', 'experience');
+if (!entry) {
+  throw new Error('Could not find experience');
+}
+
+const { Content } = await render(entry);
 ---
 
 <Layout>
-	<h1>Experience</h1>
+	<h1>{ entry.data.title }</h1>
 	<div class="lg:mx-10 lg:mt-10">
-		<div class="">
-			<p>coming soon...</p>
+		<div class="card prose">
+			<Content />
 		</div>
 	</div>
 </Layout>
